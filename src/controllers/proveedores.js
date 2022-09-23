@@ -50,17 +50,22 @@ const actualizarProve = async (req, res) => {
 
     let proveedorAct;
     try {
-        proveedorAct = await Provee.findByIdAndUpdate(
-            { "id": id },
-            {
-                $set: {
-                    name: name,
-                    description: description,
-                    isDeleted: isDeleted,
-                }
-            },
-            { new: true }
-        );
+        const proveedor = await Provee.find({ id })
+        proveedor.name = name;
+        proveedor.description = description;
+        proveedor.isDeleted = isDeleted;
+        await proveedor.save()
+        // proveedorAct = await Provee.findByIdAndUpdate(
+        //     id,
+        //     {
+        //         $set: {
+        //             name: name,
+        //             description: description,
+        //             isDeleted: isDeleted,
+        //         }
+        //     },
+        //     { new: true }
+        // );
     }
     catch (err) {
         console.log(err);
