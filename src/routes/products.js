@@ -7,4 +7,5 @@ router.post("/add", productsControllers.create);
 router.put("/update/:id", productsControllers.actualizarProd);
 router.delete("/delete/:id", productsControllers.eliminarProd);
 
+
 module.exports = router;
