@@ -1,11 +1,11 @@
-require("dotenv").config();
+//require("dotenv").config();
 const express = require('express');
 const mongoose = require("mongoose")
 const cors = require("cors")
 
 const app = express();
 
-const port = process.env.PORT;
+const port = 3000;
 
 
 app.use(express.json());
@@ -21,11 +21,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
-mongoose.connect(process.env.URL)
+mongoose.connect('mongodb + srv://mzalazar1:marcos1234@cluster0.11cqgzf.mongodb.net/MCGADATABASE?retryWrites=true&w=majority')
     .then(() => {
         console.log("🟢 DB Connected");
-        app.listen({ port: process.env.PORT }, () => {
-            console.log(`🚗 Server running on port ${process.env.PORT}`);
+        app.listen({ port: 3000 }, () => {
+            console.log(`🚗 Server running on port ${3000}`);
         });
     })
     .catch((err) => {
