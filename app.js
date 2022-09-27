@@ -5,7 +5,7 @@ const cors = require("cors")
 
 const app = express();
 
-const port = 3000;
+const port = 4000;
 
 
 app.use(express.json());
@@ -24,8 +24,8 @@ app.get('/', (req, res) => {
 mongoose.connect('mongodb + srv://mzalazar1:marcos1234@cluster0.11cqgzf.mongodb.net/MCGADATABASE?retryWrites=true&w=majority')
     .then(() => {
         console.log("🟢 DB Connected");
-        app.listen({ port: 3000 }, () => {
-            console.log(`🚗 Server running on port ${3000}`);
+        app.listen({ port: 4000 }, () => {
+            console.log(`🚗 Server running on port ${4000}`);
         });
     })
     .catch((err) => {
